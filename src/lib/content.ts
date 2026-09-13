@@ -11,6 +11,7 @@ export type Award = {
   url?: string;
   notes?: string;
   certificateImage?: string;
+  certificateAspectRatio?: number;
   additionalMedia?: Array<{ image: string; kind?: string; caption?: string }>;
 };
 
@@ -153,6 +154,7 @@ const artworkQuery = `*[_type == "artwork" && defined(image.asset) && defined(st
     "url": coalesce(url, competition->website),
     notes,
     certificateImage,
+    "certificateAspectRatio": certificateImage.asset->metadata.dimensions.aspectRatio,
     "additionalMedia": additionalAwardMedia[]{image, kind, caption}
   }
 }`;

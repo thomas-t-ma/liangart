@@ -1320,3 +1320,57 @@ h1, h2, h3 { color: var(--ink); }
 @media (hover: hover) and (pointer: fine) {
   .art-visual-cluster:hover .gallery-support { opacity: .08; }
 }
+
+/* v18.2: certificates keep their true proportions inside a consistent visual footprint. */
+.gallery-support-award {
+  right: -8px;
+  width: var(--certificate-width, 210px);
+  max-width: 54%;
+}
+.gallery-support-award img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: var(--certificate-ratio, 1.5);
+  object-fit: contain;
+  border-radius: 7px;
+}
+
+@media (max-width: 720px) {
+  .gallery-support-award {
+    right: -3px;
+    width: var(--certificate-width-mobile, 150px);
+    max-width: 52%;
+  }
+  .gallery-support-award img { max-height: none; }
+}
+
+
+/* Award media in the detail view also keeps its natural document/photo proportions. */
+.award-media-strip .certificate-thumb {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  max-width: 170px;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.award-media-strip .certificate-thumb img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 170px;
+  max-height: 115px;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #0e131b;
+}
+
+@media (max-width: 720px) {
+  .award-media-strip .certificate-thumb,
+  .award-media-strip .certificate-thumb img { max-width: 138px; }
+  .award-media-strip .certificate-thumb img { max-height: 96px; }
+}

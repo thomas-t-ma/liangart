@@ -4,6 +4,21 @@ const { artwork, lightbox = false } = Astro.props as { artwork: Artwork; lightbo
 const award = artwork.awards?.[0];
 const galleryAward = artwork.awards?.find((item) => item.certificateImage);
 const galleryCertificate = galleryAward?.certificateImage;
+const galleryCertificateAspect = galleryAward?.certificateAspectRatio && galleryAward.certificateAspectRatio > 0
+  ? galleryAward.certificateAspectRatio
+  : 1.5;
+
+function certificateWidth(aspect: number, targetArea: number, maxWidth: number, maxHeight: number) {
+  let width = Math.sqrt(targetArea * aspect);
+  let height = width / aspect;
+  const scale = Math.min(1, maxWidth / width, maxHeight / height);
+  width *= scale;
+  return Math.round(width);
+}
+
+const certificateDesktopWidth = certificateWidth(galleryCertificateAspect, 30000, 280, 175);
+const certificateMobileWidth = certificateWidth(galleryCertificateAspect, 16500, 190, 125);
+const galleryCertificateStyle = `--certificate-ratio:${galleryCertificateAspect};--certificate-width:${certificateDesktopWidth}px;--certificate-width-mobile:${certificateMobileWidth}px`;
 const hasGallerySupportingMedia = Boolean(artwork.studentPhoto || galleryCertificate);
 const dimensions = artwork.dimensions?.width && artwork.dimensions?.height
   ? `${artwork.dimensions.width} × ${artwork.dimensions.height} ${artwork.dimensions.unit || 'in'}`
@@ -35,7 +50,7 @@ const studentMedia = [
       </figure>
     )}
     {galleryCertificate && (
-      <figure class="gallery-support gallery-support-award" aria-label={`Award image for ${artwork.title}`}>
+      <figure class="gallery-support gallery-support-award" style={galleryCertificateStyle} aria-label={`Award image for ${artwork.title}`}>
         <img src={galleryCertificate} alt={`Award certificate for ${artwork.title}`} loading="lazy" />
         <figcaption>Award</figcaption>
       </figure>
