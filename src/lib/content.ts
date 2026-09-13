@@ -57,7 +57,7 @@ export type Artwork = {
   description?: string;
   artistStatement?: string;
   videoUrl?: string;
-  featured?: boolean;
+  needsMetadataReview?: boolean;
   image: string;
   imageLarge?: string;
   alt?: string;
@@ -119,7 +119,7 @@ export type Faq = {
   displayOrder?: number;
 };
 
-const artworkQuery = `*[_type == "artwork" && defined(image.asset) && defined(student->displayName)] | order(artworkDate desc, _createdAt desc) {
+const artworkQuery = `*[_type == "artwork" && defined(image.asset) && defined(student->displayName) && coalesce(needsMetadataReview, false) != true] | order(artworkDate desc, _createdAt desc) {
   "id": _id,
   "createdAt": _createdAt,
   "title": coalesce(title, "Untitled"),
@@ -136,7 +136,7 @@ const artworkQuery = `*[_type == "artwork" && defined(image.asset) && defined(st
   description,
   artistStatement,
   videoUrl,
-  featured,
+  needsMetadataReview,
   ageAtCompletion,
   gradeAtCompletion,
   dimensions,
@@ -195,10 +195,9 @@ export async function getArtwork(): Promise<Artwork[]> {
   return mapped.sort((a, b) => (b.sortDate || 0) - (a.sortDate || 0));
 }
 
-export async function getFeaturedArtwork(limit = 6) {
+export async function getRecentArtwork(limit = 6) {
   const artwork = await getArtwork();
-  const featured = artwork.filter((item) => item.featured);
-  return (featured.length ? featured : artwork).slice(0, limit);
+  return artwork.slice(0, limit);
 }
 
 export async function getPrograms(): Promise<Program[]> {

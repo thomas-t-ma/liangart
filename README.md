@@ -121,3 +121,12 @@ The background-art treatment is automatic; no artwork needs to be specially tagg
 ## v15 homepage media direction
 
 The homepage no longer uses floating/faded artwork thumbnails as decoration. Instead, major sections use one full-bleed student artwork as a background composition with a high-readability content panel above it. The hero background is also the permanent slot for the future muted looping classroom montage: until a video is uploaded, a randomly selected student artwork fills that same area. When a video is later added in Sanity, it replaces the artwork as the moving media layer without changing the hero layout.
+
+
+## v18 workflow
+
+- Every published Student Work record appears publicly by default.
+- Check **Needs Metadata Review** only when an entry is incomplete; checked entries are excluded from the public site.
+- There is no per-work “Show on Website” or “Featured on Homepage” control.
+- The homepage Student Gallery automatically shows the six most recent public works.
+- Student portraits and award certificates appear on opposite bottom corners of gallery artwork when those images exist.

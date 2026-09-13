@@ -12,8 +12,8 @@ const [allArtwork, programs, settings, tuition] = await Promise.all([
   getSiteSettings(),
   getPrimaryTuition(),
 ]);
-const featuredArtwork = allArtwork.filter((item) => item.featured);
-const artwork = (featuredArtwork.length ? featuredArtwork : allArtwork).slice(0, 6);
+// Homepage gallery is automatic: show the six most recent public works.
+const artwork = allArtwork.slice(0, 6);
 const backgroundFallback = allArtwork.slice(0, 3);
 const leadFallback = allArtwork.slice(0, 3);
 const heroPoolJson = JSON.stringify(allArtwork.map((item) => ({

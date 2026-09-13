@@ -53,12 +53,12 @@ export const demoPrograms = [
 ];
 
 export const demoArtwork = [
-  { id: 'demo-1', title: 'Demo Artwork 01', student: 'Demo Student A.', program: 'Studio Art', programSlug: 'studio-art', category: 'Watercolor', medium: 'Watercolor on paper', year: 2026, ageAtCompletion: 12, featured: true, image: '/demo/art-1.svg', awards: [{ competition: '[Draft] Demo Competition', awardName: '[Draft] Demo Award', year: 2026 }] },
-  { id: 'demo-2', title: 'Demo Artwork 02', student: 'Demo Student B.', program: 'Studio Art', programSlug: 'studio-art', category: 'Painting', medium: 'Acrylic', year: 2026, featured: true, image: '/demo/art-2.svg', awards: [] },
-  { id: 'demo-3', title: 'Demo Artwork 03', student: 'Demo Student C.', program: 'Studio Art', programSlug: 'studio-art', category: 'Drawing', medium: 'Colored pencil', year: 2025, ageAtCompletion: 10, featured: true, image: '/demo/art-3.svg', awards: [{ competition: '[Draft] Demo Competition', awardName: '[Draft] Demo Award', year: 2025 }] },
-  { id: 'demo-4', title: 'Demo Artwork 04', student: 'Demo Student D.', program: 'Studio Art', programSlug: 'studio-art', category: 'Painting', medium: 'Oil study', year: 2025, featured: true, image: '/demo/art-4.svg', awards: [] },
-  { id: 'demo-5', title: 'Demo Artwork 05', student: 'Demo Student E.', program: 'Studio Art', programSlug: 'studio-art', category: 'Mixed Media', medium: 'Mixed media', year: 2026, featured: true, image: '/demo/art-5.svg', awards: [] },
-  { id: 'demo-6', title: 'Demo Artwork 06', student: 'Demo Student F.', program: 'Studio Art', programSlug: 'studio-art', category: 'Charcoal', medium: 'Charcoal', year: 2025, ageAtCompletion: 14, featured: true, image: '/demo/art-6.svg', awards: [{ competition: '[Draft] Demo Competition', awardName: '[Draft] Demo Award', year: 2025 }] },
+  { id: 'demo-1', title: 'Demo Artwork 01', student: 'Demo Student A.', program: 'Studio Art', programSlug: 'studio-art', category: 'Watercolor', medium: 'Watercolor on paper', year: 2026, ageAtCompletion: 12, image: '/demo/art-1.svg', awards: [{ competition: '[Draft] Demo Competition', awardName: '[Draft] Demo Award', year: 2026 }] },
+  { id: 'demo-2', title: 'Demo Artwork 02', student: 'Demo Student B.', program: 'Studio Art', programSlug: 'studio-art', category: 'Painting', medium: 'Acrylic', year: 2026, image: '/demo/art-2.svg', awards: [] },
+  { id: 'demo-3', title: 'Demo Artwork 03', student: 'Demo Student C.', program: 'Studio Art', programSlug: 'studio-art', category: 'Drawing', medium: 'Colored pencil', year: 2025, ageAtCompletion: 10, image: '/demo/art-3.svg', awards: [{ competition: '[Draft] Demo Competition', awardName: '[Draft] Demo Award', year: 2025 }] },
+  { id: 'demo-4', title: 'Demo Artwork 04', student: 'Demo Student D.', program: 'Studio Art', programSlug: 'studio-art', category: 'Painting', medium: 'Oil study', year: 2025, image: '/demo/art-4.svg', awards: [] },
+  { id: 'demo-5', title: 'Demo Artwork 05', student: 'Demo Student E.', program: 'Studio Art', programSlug: 'studio-art', category: 'Mixed Media', medium: 'Mixed media', year: 2026, image: '/demo/art-5.svg', awards: [] },
+  { id: 'demo-6', title: 'Demo Artwork 06', student: 'Demo Student F.', program: 'Studio Art', programSlug: 'studio-art', category: 'Charcoal', medium: 'Charcoal', year: 2025, ageAtCompletion: 14, image: '/demo/art-6.svg', awards: [{ competition: '[Draft] Demo Competition', awardName: '[Draft] Demo Award', year: 2025 }] },
 ];
 
 export const demoTuition = [

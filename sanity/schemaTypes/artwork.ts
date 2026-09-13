@@ -32,7 +32,14 @@ export const artwork = defineType({
       description: 'Defaults to Studio Art. Change this for Animation or another program.',
     }),
     defineField({ name: 'category', title: 'Category (optional)', type: 'reference', to: [{ type: 'workCategory' }], group: 'basics', description: 'Choose an existing category or create a new one.' }),
-    defineField({ name: 'featured', title: 'Featured on Homepage', type: 'boolean', group: 'basics', initialValue: false, description: 'Optional. Turn this on for especially strong work you want highlighted on the homepage.' }),
+    defineField({
+      name: 'needsMetadataReview',
+      title: 'Needs Metadata Review',
+      type: 'boolean',
+      group: 'basics',
+      initialValue: false,
+      description: 'Leave this off for normal uploads. Turn it on only while an entry is incomplete; checked works stay out of the public website until review is finished.',
+    }),
 
     defineField({ name: 'ageAtCompletion', title: 'Age When Completed', type: 'number', group: 'student', validation: (Rule) => Rule.integer().min(3).max(100) }),
     defineField({ name: 'gradeAtCompletion', title: 'Grade When Completed', type: 'string', group: 'student', description: 'Optional. Example: 7th grade.' }),
@@ -85,9 +92,9 @@ export const artwork = defineType({
     { title: 'Newest', name: 'newest', by: [{ field: 'artworkDate', direction: 'desc' }, { field: '_createdAt', direction: 'desc' }] },
   ],
   preview: {
-    select: { title: 'title', student: 'student.displayName', media: 'image', featured: 'featured', age: 'ageAtCompletion' },
-    prepare({ title, student, media, featured, age }) {
-      const flags = [age ? `Age ${age}` : null, featured ? 'Featured' : null].filter(Boolean).join(' · ');
+    select: { title: 'title', student: 'student.displayName', media: 'image', needsReview: 'needsMetadataReview', age: 'ageAtCompletion' },
+    prepare({ title, student, media, needsReview, age }) {
+      const flags = [age ? `Age ${age}` : null, needsReview ? 'Needs review' : null].filter(Boolean).join(' · ');
       return { title: title || 'Untitled', subtitle: [student, flags].filter(Boolean).join(' — '), media };
     },
   },

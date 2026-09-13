@@ -68,8 +68,8 @@ const studentMedia = [
           <dl class="work-facts">
             {artwork.ageAtCompletion && <><dt>Age</dt><dd>{artwork.ageAtCompletion}</dd></>}
             {artwork.gradeAtCompletion && <><dt>Grade</dt><dd>{artwork.gradeAtCompletion}</dd></>}
+            {artwork.category && <><dt>Category</dt><dd>{artwork.category}</dd></>}
             {artwork.medium && <><dt>Medium</dt><dd>{artwork.medium}</dd></>}
-            {!artwork.medium && artwork.category && <><dt>Category</dt><dd>{artwork.category}</dd></>}
             {dimensions && <><dt>Dimensions</dt><dd>{dimensions}</dd></>}
             {artwork.artworkDate && <><dt>Completed</dt><dd>{artwork.artworkDate}</dd></>}
             {!artwork.artworkDate && artwork.year && <><dt>Year</dt><dd>{artwork.year}</dd></>}
